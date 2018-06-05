@@ -1,0 +1,129 @@
+- content_for :assets do
+  = javascript_include_tag("section", :defer => true)
+
+= partial "components/nav"
+.container
+  .row
+  
+    = create_nav
+    
+    .col-md-9.col-xs-12
+    
+      div style="text-align:center;"
+    
+        h2 The Main Event 
+        h1 BBRFC Celtic 50<sup>th</sup> & 20<sup>th</sup> Anniversary Ball      
+          
+      = create_heading
+      
+      p.lead SAVE THE DATE !
+
+      h4 Saturday, 30<sup>th</sup> June 2018
+      
+      = create_heading
+      
+      h4 Hôtel de la Poste, Brussels
+       
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2518.23905455327!2d4.343504815746431!3d50.86377397953455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c399fd06cf5f%3A0xb86012a3151c8866!2sHotel+de+la+Poste+T+%26+T!5e0!3m2!1sen!2sbe!4v1511373411282" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      
+      = create_heading
+      
+      p
+      
+        | All are welcome, Brussels British, Barbarians and Celts alike, ol' boys and fresh
+          faces, from the founding mothers and fathers, to the parents & 
+          kids of the rugby school (just make sure you're over 16!)
+          
+      = create_heading
+      
+      h4  €110 full, €90 concessions
+      
+      h5 This ticket price includes:
+      
+      ul
+      
+        li Champagne & canapés
+        li Three course luxury meal with free-flowing drinks
+        li Open bar all night long
+        li Live entertainment
+        li Multimedia entertainment
+        li Grand, central location
+        li Music and dancing
+        li A chance to make a weekend of it, to meet new people, to reunite with old teammates, and be a part of an historic moment in the club's history!
+      
+      = create_heading
+      
+      h4 Black Tie
+      
+      p 
+      
+        ' If you are unsure of what this entails please read 
+        
+        a href="https://en.wikipedia.org/wiki/Black_tie" target='_blank' the wikipedia article 
+        
+        |  or check online for what to wear.
+      
+      = create_heading
+      
+      h4 TICKETS ON SALE NOW VIA BANK TRANSFER
+      
+      .panel.panel-info
+        .panel-heading
+          h3.panel-title
+            i.fa.fa-info-circle style=("padding-right: 1em")
+            | Tickets. Account number and details
+        .panel-body
+            table.table.table-bordered.table-condensed
+              thead
+                tr
+                  th Full
+                  th Concessions
+              tbody
+                tr
+                  td &euro; 110
+                  td &euro; 90 *
+            p 
+            
+              ' * Please contact 
+              
+              a href="mailto:anniversary@bbrfc-celtic.be" our team 
+              
+              |   (anniversary@bbrfc-celtic.be) to discuss qualification.
+              
+            p 
+            
+              ' Please email us at 
+              
+              a href="mailto:anniversary@bbrfc-celtic.be" anniversary@bbrfc-celtic.be 
+              
+              |   once you have made your payment. We will send 
+                  you a notification of receipt of payment for your records.
+            hr/
+            ul
+              li BBRFC-Celtic Social
+              li IBAN: BE66 7390 1677 5543
+              li BIC: KREDBEBB
+            | Please add as a communication:            
+            pre
+            
+              | Anniversary Ball - 'Full Name'
+              
+              
+      p
+        | <a class="btn btn-primary" href="https://bbrfc-celtic.be/anniversary/weekend_activities">Make a weekend of it</a>
+            
+      .panel.panel-warning
+        .panel-heading
+          h3.panel-title
+            i.fa.fa-eye style=("padding-right: 1em")
+            | Payment policy!
+        .panel-body
+          p
+
+            ' For any queries such as payment plans, or confirmation of payment, please contact 
+
+            a href="mailto:anniversary@bbrfc-celtic.be" our team
+
+            |   (anniversary@bbrfc-celtic.be) for details.
+      
+    

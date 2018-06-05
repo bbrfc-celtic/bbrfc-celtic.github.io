@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>BBRFC Celtic: Stats for nerds</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--Load the AJAX API-->
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+
+  // Load the Visualization API and the piechart package.
+  var myMapsApiKey = 'AIzaSyBLTlfY4SUDsbYbdk4WExN-pyGGiZ79Vug';
+  google.load('visualization', '1.0', {'mapsApiKey': myMapsApiKey,'packages':['corechart']});
+
+  // Set a callback to run when the Google Visualization API is loaded.
+  google.setOnLoadCallback(drawCharts);
+
+  // Callback that creates and populates a data table, 
+  // instantiates the chart, passes in the data and
+  // draws it.
+
+  function drawCharts() {
+      var queryGeo = new google.visualization.Query(
+      'https://docs.google.com/spreadsheets/d/1W2fh6--xGdoR00YCLg7vuu7kZA78qsr8I7VBLD-4Pxk/gviz/tq?sheet=Sheet1&headers=1&range=A1:C188');
+      queryGeo.send(handleClickDataQueryRequest);
+      var queryPie = new google.visualization.Query(
+      'https://docs.google.com/spreadsheets/d/1W2fh6--xGdoR00YCLg7vuu7kZA78qsr8I7VBLD-4Pxk/gviz/tq?sheet=Sheet1&headers=1&range=G1:H4');
+      queryPie.send(handleDeviceDataQueryRequest);
+  }
+
+function handleClickDataQueryRequest(response) {
+  if (response.isError()) {
+    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    return;
+  }
+
+  var data = response.getDataTable();
+  var chart = new google.visualization.GeoChart(document.getElementById('geo_chart_div'));
+  var options = {
+        region: 'world',
+        backgroundColor: 'rgb(201, 218, 248)',
+        displayMode: 'markers',
+        sizeAxis: { minValue: 10, maxValue: 8000 },
+        height: 400,
+        colorAxis: { minValue: 1, colors: ['green', 'blue'], maxValue: 600 },
+        magnifyingGlass: {enable: true, zoomFactor: 2.0}
+      };
+  chart.draw(data, options);
+}
+
+function handleDeviceDataQueryRequest(response) {
+  if (response.isError()) {
+    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    return;
+  }
+
+  var data = response.getDataTable();
+  var chart = new google.visualization.PieChart(document.getElementById('pie_chart_div'));
+  var options = {
+      title: 'Devices going to BBRFC Celtic',
+      height: 400,
+      is3D: true
+      };
+  chart.draw(data, options);
+}
+
+
+
+</script>
+</head>
+<body>
+<!--Div that will hold the chart-->
+<div class="jumbotron">
+<h1 align="center">BBRFC Celtic</h1>
+<h2 align="center"> Stats for nerds</h2>
+</div>
+<div class="col-md-6 label label-success">
+<h4> World map of our website as a google search result.</h4>
+<div id="geo_chart_div" style="left: 10%;"></div>
+</div>
+<div class="col-md-6 label label-warning">
+<h4> Share of devices going to our website.</h4>
+<div id="pie_chart_div" style="left: 10%;"></div>
+</div>
+</body>
+</html>

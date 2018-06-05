@@ -1,0 +1,40 @@
+<head><title> - BBRFC Celtic</title><meta content="text/html; charset=utf-8" http-equiv="content-type" /><meta content="" name="description" /><meta content="Rugby Brussels Belgium XVs Touch Union brusselsceltic brusselsbarbarians BBRFC Celtic training" name="keywords" /><link href="https://plus.google.com/111722678458840704885/" rel="Publisher" /><meta content="width=device-width, initial-scale=1" name="viewport" /><link type="image/x-icon" href="/assets/img/favicon.ico" rel="icon" /><script src="/assets/js/global.js" defer="defer"></script><script>(function(w){
+"use strict";
+w.loadCSS = function( href, before, media ){
+  var ss = w.document.createElement( "link" );
+  var ref;
+  if( before ){
+    ref = before;
+  } else if( w.document.querySelectorAll ){
+    var refs = w.document.querySelectorAll(  "style,link[rel=stylesheet],script" );
+    ref = refs[ refs.length - 1];
+  } else {
+  ref = w.document.getElementsByTagName( "script" )[ 0 ];
+  }
+
+  var sheets = w.document.styleSheets;
+  ss.rel = "stylesheet";
+  ss.href = href;
+  ss.media = "only x";
+  ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+  ss.onloadcssdefined = function( cb ){
+    var defined;
+    for( var i = 0; i < sheets.length; i++ ){
+      if( sheets[ i ].href && sheets[ i ].href === ss.href ){
+      defined = true;
+      }
+    }
+    if( defined ){
+      cb();
+    } else {
+    setTimeout(function() {
+    ss.onloadcssdefined( cb );
+    });
+    }
+  };
+  ss.onloadcssdefined(function() {
+    ss.media = media || "all";
+  });
+  return ss;
+};
+}(this));</script><script>loadCSS("/assets/css/delayed.css");</script><noscript><link href="/assets/css/delayed.css" rel="stylesheet" /></noscript><!--[if lte IE 8] <script src="/assets/css/ie/html5shiv.js"></script>--><link href="/assets/css/style.css" rel="stylesheet" /><script src="/assets/js/immediate.js"></script></head>
